@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="./js/animation.js"></script>
+        <script src="./js/tasks.js"></script>
+        <link rel="stylesheet" href="./css/move.css">
+    </head>
+    <body>
+        <p>Price: <span id="priceTag">123.00</span></p>
+        <button id="button">Change</button>
+        <br>
+        <p>Took: [<span id="cost">00</span>] MS to process</p>
+        <button id="tasks">Run 1000 tasks</button>
+        <button id="tasksBlocking">Run 1000 tasks Blocking</button>
+
+        <script>
+            const priceTag = document.querySelector("#priceTag");
+            const btn = document.querySelector("#button");
+            btn.onclick = () => {
+                animation(123, 1000, 1000, (value) => {
+                    priceTag.textContent = value;
+                });
+            };
+            document
+                .querySelector("#tasks")
+                .onclick = run;
+            document
+                .querySelector("#tasksBlocking")
+                .onclick = runBlocking;
+        </script>
+        <div class="animation"></div>
+
+    </body>
+</html>
